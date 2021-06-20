@@ -1,0 +1,52 @@
+[1] "# valores estándar del test error"
+[1] 4.189408 1.193672 1.209729 1.230695
+null device 
+          1 
+[1] "Hemos obtenido resultados muy similares al LOOCV en cuanto a la estimación del test error por cada grado de polinomio (siendo el grado 2 de nuevo, el mejor). En casos con un gran número de datos, k-fold cross validation supondría una ventaja al ser computacionalmente más rápido."
+[1] "# Bootstrap con 1000 pseudomuestras"
+
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+boot(data = Weekly, statistic = fun.boot, R = 1000)
+
+
+Bootstrap Statistics :
+      original        bias    std. error
+t1* 0.21473151 -0.0021131082  0.05979207
+t2* 0.06279058  0.0001238284  0.02607017
+[1] "Si compararemos los estimadores del error estándar para cada coeficiente obtenidos mediante bootstrap con los que se obtiene mediante la fórmula del error estándar usada por el modelo glm(), podemos ver que obtenemos valores casi iguales"
+[1] "estimadores del error estándar para cada coeficiente obtenidos mediante bootstrap"
+              Estimate Std. Error  z value     Pr(>|z|)
+(Intercept) 0.21473151 0.06122616 3.507185 0.0004528734
+Lag2        0.06279058 0.02636297 2.381772 0.0172295448
+null device 
+          1 
+null device 
+          1 
+[1] "También podemos obtener los intervalos de confianza para los coeficientes"
+[1] "# Intervalo de confianza para Intercept"
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = estimacion.boot, type = "norm", index = 1)
+
+Intervals : 
+Level      Normal        
+95%   ( 0.0997,  0.3340 )  
+Calculations and Intervals on Original Scale
+[1] "# Intervalo de confianza para Lag2"
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = estimacion.boot, type = "norm", index = 2)
+
+Intervals : 
+Level      Normal        
+95%   ( 0.0116,  0.1138 )  
+Calculations and Intervals on Original Scale
+  |                                                                                     |                                                                             |   0%  |                                                                                     |......                                                                       |   8%  |                                                                                     |............                                                                 |  15%  |                                                                                     |..................                                                           |  23%  |                                                                                     |........................                                                     |  31%  |                                                                                     |..............................                                               |  38%  |                                                                                     |....................................                                         |  46%  |                                                                                     |.........................................                                    |  54%  |                                                                                     |...............................................                              |  62%  |                                                                                     |.....................................................                        |  69%  |                                                                                     |...........................................................                  |  77%  |                                                                                     |.................................................................            |  85%  |                                                                                     |.......................................................................      |  92%  |                                                                                     |.............................................................................| 100%
+[1] "main.r"
