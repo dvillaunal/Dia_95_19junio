@@ -1,3 +1,14 @@
+---
+title: "Dia_95_19junio"
+author: "Daniel Felipe Villa Rengifo"
+date: "19/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 ```{r, eval=FALSE, include=TRUE}
 "Protocolo:
  
@@ -121,3 +132,9 @@ boot.ci(boot.out = estimacion.boot, type = "norm", index = 1)
 print("# Intervalo de confianza para Lag2")
 boot.ci(boot.out = estimacion.boot, type = "norm", index = 2)
 ```
+
+```{r}
+library(knitr)
+purl("Dia_95_19junio.Rmd", "main.r")
+```
+

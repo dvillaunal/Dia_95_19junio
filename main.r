@@ -1,36 +1,26 @@
-```{r, eval=FALSE, include=TRUE}
-"Protocolo:
- 
- 1. Daniel Felipe Villa Rengifo
- 
- 2. Lenguaje: R
- 
- 3. Tema: MÉTODOS DE REMUESTREO Y VALIDACIÓN DE MODELOS: VALIDACIÓN CRUZADA Y BOOTSTRAP [Parte 3]
- 
- 4. Fuentes:  
-    https://rpubs.com/rdelgado/405322
-    https://tereom.github.io/est-computacional-2018/bootstrap-en-r.html"
-```
+## ---- eval=FALSE, include=TRUE-------------------------------------------------------
+## "Protocolo:
+## 
+##  1. Daniel Felipe Villa Rengifo
+## 
+##  2. Lenguaje: R
+## 
+##  3. Tema: MÉTODOS DE REMUESTREO Y VALIDACIÓN DE MODELOS: VALIDACIÓN CRUZADA Y BOOTSTRAP [Parte 3]
+## 
+##  4. Fuentes:
+##     https://rpubs.com/rdelgado/405322
+##     https://tereom.github.io/est-computacional-2018/bootstrap-en-r.html"
 
 
-```{r}
+## ------------------------------------------------------------------------------------
 # Guardamos los Outputs:
 sink("OUTPUTS.txt")
 
 # Cargamos los .RData:
 #load("~/R/100DaysOfCode/Dia_95_19junio/.RData")
-```
 
 
-# K-fold Cross Validation
-
-
-La función `cv.glm()` del paquete boot puede emplearse para llevar a cabo _k-fold cross validation_ (especificando el argumento __K__ correspondiente a los folds) de cualquier modelo lineal generalizado creado mediante la función `glm()`. Un valor común es __K = 10__.
-
-
-## Estimación del test error
-
-```{r}
+## ------------------------------------------------------------------------------------
 # Cargamos la libreria
 library(boot)
 library(ggplot2)
@@ -64,13 +54,9 @@ dev.off()
 
 # Resultado:
 "Hemos obtenido resultados muy similares al LOOCV en cuanto a la estimación del test error por cada grado de polinomio (siendo el grado 2 de nuevo, el mejor). En casos con un gran número de datos, k-fold cross validation supondría una ventaja al ser computacionalmente más rápido."
-```
 
-# Bootstrap
 
-_El método de bootstrap se puede aplicar para cuantificar la incertidumbre asociada a un determinado estimador o método de aprendizaje estadístico. Por ejemplo, se puede utilizar para estimar el error estándar (SE) de los coeficientes de un modelo de regresión lineal (en este caso se utilizan fórmulas matemáticas que R implementa automáticamente, aunque el resultado sería válido siempre y cuando las condiciones para su aplicación se cumplan, mientras que el bootstrap no requiere de condiciones previas)._
-
-```{r}
+## ------------------------------------------------------------------------------------
 # Creamos una semilla:
 set.seed(1)
 
@@ -120,4 +106,3 @@ boot.ci(boot.out = estimacion.boot, type = "norm", index = 1)
 # Intervalo de confianza para Lag2
 print("# Intervalo de confianza para Lag2")
 boot.ci(boot.out = estimacion.boot, type = "norm", index = 2)
-```
